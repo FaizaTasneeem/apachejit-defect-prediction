@@ -55,9 +55,9 @@ Role: **Label** = what we predict · **Feature** = model input · **Not used** =
 | `ndev` | Average of number of people worked in each of modified files | float | Feature |
 | `age` | Average time interval between the last and the current change | float | Feature |
 | `nuc` | Number of unique changes to the modified files | float | Feature |
-| `aexp` | Developer experience | int | Feature |
-| `arexp` | Recent Developer experience | float | Feature |
-| `asexp` | Developer experience with a subsystem | float | Feature |
+| `aexp` | Author experience - Number of changes author made before this one | int | Feature |
+| `arexp` | Author recent experience - How recent the changes were made by the author | float | Feature |
+| `asexp` | Author experience with a subsystem - Author's earlier changes to the same subsystems | float | Feature |
 
 ---
 
