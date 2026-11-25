@@ -32,9 +32,9 @@ This project predicts which code changes (commits) are likely to introduce bugs,
 
 **Notes:**
 - Hadoop is split into 3 values: `hadoop` (11,964), `hadoop-hdfs` (2,907) and `hadoop-mapreduce` (1,321), total: 16,192 commits, making it the second-largest project after Camel (22,700). 
-- _Note on class imbalance and what it means for evaluation:_ ___
+- Only about 26% of commits are buggy, so accuracy is misleading: predicting 'clean' for everything already gives about 74%. Therefore, I'll use precision, recall, F1 and PR-AUC instead, which measure how well the model finds buggy commits.
 
-### 2.2 Columns
+### 2.2 Column Details
 
 Role: **Label** = what we predict · **Feature** = model input · **Not used** = ID, grouping or time info only
 
@@ -67,18 +67,18 @@ Role: **Label** = what we predict · **Feature** = model input · **Not used** =
 
 | Feature | Median (buggy) | Median (clean) | Buggy higher? |
 |---|---|---|---|
-| `la` | ___ | ___ | ___ |
-| `ld` | ___ | ___ | ___ |
-| `nf` | ___ | ___ | ___ |
-| `nd` | ___ | ___ | ___ |
-| `ns` | ___ | ___ | ___ |
-| `ent` | ___ | ___ | ___ |
-| `ndev` | ___ | ___ | ___ |
-| `age` | ___ | ___ | ___ |
-| `nuc` | ___ | ___ | ___ |
-| `aexp` | ___ | ___ | ___ |
-| `arexp` | ___ | ___ | ___ |
-| `asexp` | ___ | ___ | ___ |
+| `la` | 138.0 | 22.0 | Yes |
+| `ld` | 27.0 | 6.0 | Yes |
+| `nf` | 6.0 | 2.0 | Yes |
+| `nd` | 3.0 | 2.0 | Yes |
+| `ns` | 1.0 | 1.9 | No |
+| `ent` | 1.768599 | 0.918296 | Yes |
+| `ndev` | 2.0 | 2.5 | No |
+| `age` | 19.500000 | 11.166667 | Yes |
+| `nuc` | 22.614458 | 13.000000 | Yes |
+| `aexp` | 180.0 | 241.0 | No |
+| `arexp` | 150.0 | 191.0 | No |
+| `asexp` | 5.0 | 52.0 | No |
 
 ### 3.2 Plots
 
