@@ -28,7 +28,7 @@ This project predicts which code changes (commits) are likely to introduce bugs,
 | Clean commits | 73.53 % |
 | Missing values | 0 |
 | Duplicate `commit_id`s | 0 |
-| Sorted by date? | ___ |
+| Sorted by date? | No |
 
 **Notes:**
 - Hadoop is split into 3 values: `hadoop` (11,964), `hadoop-hdfs` (2,907) and `hadoop-mapreduce` (1,321), total: 16,192 commits, making it the second-largest project after Camel (22,700). 
