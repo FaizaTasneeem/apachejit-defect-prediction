@@ -2,8 +2,6 @@
 
 Just-in-time (JIT) defect prediction on the ApacheJIT dataset: predicting whether a commit will introduce a bug, using CatBoost, with SHAP explanations.
 
-> **Status:** 🚧 Work in progress
-
 ---
 
 ## 1. Goal
@@ -33,7 +31,7 @@ This project predicts which code changes (commits) are likely to introduce bugs,
 | Sorted by date? | ___ |
 
 **Notes:**
-- _Note on how Hadoop is split across project values:_ ___
+- Hadoop is split into 3 values: `hadoop` (11,964), `hadoop-hdfs` (2,907) and `hadoop-mapreduce` (1,321), total: 16,192 commits, making it the second-largest project after Camel (22,700). 
 - _Note on class imbalance and what it means for evaluation:_ ___
 
 ### 2.2 Columns
@@ -42,24 +40,24 @@ Role: **Label** = what we predict · **Feature** = model input · **Not used** =
 
 | Column | Meaning (in my own words) | Type | Role |
 |---|---|---|---|
-| `commit_id` | ___ | text | Not used (ID) |
-| `project` | ___ | text | Not used (grouping) |
-| `buggy` | ___ | bool | **Label** |
-| `fix` | ___ | bool | Feature |
-| `year` | ___ | int | Not used (time) |
-| `author_date` | ___ | datetime | Not used (used for split) |
-| `la` | ___ | int | Feature |
-| `ld` | ___ | int | Feature |
-| `nf` | ___ | int | Feature |
-| `nd` | ___ | int | Feature |
-| `ns` | ___ | int | Feature |
-| `ent` | ___ | float | Feature |
-| `ndev` | ___ | float | Feature |
-| `age` | ___ | float | Feature |
-| `nuc` | ___ | float | Feature |
-| `aexp` | ___ | int | Feature |
-| `arexp` | ___ | float | Feature |
-| `asexp` | ___ | float | Feature |
+| `commit_id` | Unique ID (hash) of the commit | text | Not used (ID) |
+| `project` | Apache project the commit belongs to | text | Not used (grouping) |
+| `buggy` | Whether this commit introduced a bug | bool | **Label** |
+| `fix` | Whether this commit fixes a bug | bool | Feature |
+| `year` | Year the commit was made | int | Not used (time) |
+| `author_date` | Date and time the author made the commit (stored as a Unix timestamp; the notebook converts it to a date) | datetime | Not used (used for split) |
+| `la` | Lines of code added | int | Feature |
+| `ld` | Lines of code deleted | int | Feature |
+| `nf` | Number of modified files | int | Feature |
+| `nd` | Number of modified directories | int | Feature |
+| `ns` | Number of modified subsystems | int | Feature |
+| `ent` | Distribution of modified code across each file | float | Feature |
+| `ndev` | Average of number of people worked in each of modified files | float | Feature |
+| `age` | Average time interval between the last and the current change | float | Feature |
+| `nuc` | Number of unique changes to the modified files | float | Feature |
+| `aexp` | Developer experience | int | Feature |
+| `arexp` | Recent Developer experience | float | Feature |
+| `asexp` | Developer experience with a subsystem | float | Feature |
 
 ---
 
