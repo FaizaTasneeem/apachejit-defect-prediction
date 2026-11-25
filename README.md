@@ -8,9 +8,7 @@ Just-in-time (JIT) defect prediction on the ApacheJIT dataset: predicting whethe
 
 ## 1. Goal
 
-_Write 2–3 sentences: what problem this solves, and why it matters to developers._
-
-___
+This project predicts which code changes (commits) are likely to introduce bugs, using the public ApacheJIT dataset, CatBoost and SHAP. A risky commit gets flagged right when it's made, making it cheaper to fix the bug than after release. SHAP shows why a commit was flagged, for example "many lines added" or "inexperienced author", which makes a prediction more trustworthy for a developer.
 
 ---
 
@@ -24,14 +22,14 @@ ___
 
 | Fact | Value |
 |---|---|
-| Number of commits (rows) | ___ |
-| Number of columns | ___ |
-| Number of project values | ___ |
-| Date range | ___ to ___ |
-| Buggy commits | ___ (___ %) |
-| Clean commits | ___ (___ %) |
-| Missing values | ___ |
-| Duplicate `commit_id`s | ___ |
+| Number of commits (rows) | 106,674 |
+| Number of columns | 18 |
+| Number of project values | 15 |
+| Date range | 2003-09-11 to 2019-12-26 |
+| Buggy commits | 26.47 % |
+| Clean commits | 73.53 % |
+| Missing values | 0 |
+| Duplicate `commit_id`s | 0 |
 | Sorted by date? | ___ |
 
 **Notes:**
