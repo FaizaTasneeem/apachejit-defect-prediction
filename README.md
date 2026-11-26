@@ -71,14 +71,17 @@ Role: **Label** = what we predict · **Feature** = model input · **Not used** =
 | `ld` | 27.0 | 6.0 | Yes |
 | `nf` | 6.0 | 2.0 | Yes |
 | `nd` | 3.0 | 2.0 | Yes |
-| `ns` | 1.0 | 1.9 | No |
-| `ent` | 1.768599 | 0.918296 | Yes |
+| `ns` | 1.0 | 1.0 | Same |
+| `ent` | 1.8 | 0.9 | Yes |
 | `ndev` | 2.0 | 2.5 | No |
-| `age` | 19.500000 | 11.166667 | Yes |
-| `nuc` | 22.614458 | 13.000000 | Yes |
+| `age` | 19.5 | 11.2 | Yes |
+| `nuc` | 22.6 | 13.0 | Yes |
 | `aexp` | 180.0 | 241.0 | No |
 | `arexp` | 150.0 | 191.0 | No |
 | `asexp` | 5.0 | 52.0 | No |
+
+**Notes:**
+- Author-experience features (aexp, arexp, asexp) are lower for buggy commits, clearly showing that the less experienced authors introduce more bugs.
 
 ### 3.2 Plots
 
