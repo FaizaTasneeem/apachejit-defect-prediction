@@ -101,7 +101,7 @@ Role: **Label** = what we predict · **Feature** = model input · **Not used** =
 
 ![Buggy rate per year](figures/buggy_rate_per_year.png)
 
-- The buggy rate rises until about 2010–2013 and then drops sharply in 2018–2019 to about 10 % which may mean that the bugs in recent commits hadn't been found yet when the dataset was made.
+- The buggy rate rises until about 2010–2013 and then drops sharply in 2018–2019 to about 10 %, which may mean that the bugs in recent commits hadn't been found yet when the dataset was made.
 
 
 ---
@@ -111,15 +111,20 @@ Role: **Label** = what we predict · **Feature** = model input · **Not used** =
 ### 4.1 Train / validation / test split
 
 - **Type:** time-based (sorted by `author_date`, no shuffling)
-- **Ratio:** ___ / ___ / ___
+- **Ratio:** 70 / 15 / 15
 
 | Set | Rows | Date range | Buggy % |
 |---|---|---|---|
-| Train | ___ | ___ to ___ | ___ |
-| Validation | ___ | ___ to ___ | ___ |
-| Test | ___ | ___ to ___ | ___ |
+| Train | 66,297 | 2003-09-11 to 2016-07-26 | 32.04 |
+| Validation | 14,206 | 2016-07-26 to 2018-03-05 | 31.51 |
+| Test | 14,207 | 2018-03-05 to 2019-12-26 | 17.75 |
 
-_Why time-based and not random:_ ___
+- **Why time-based and not random:** A random split would let the model train on future commits and be tested on past ones. That leaks information and makes the scores look better than they would be in real use.
+
+- The test buggy rate is 17.75 %, against about 32 % for train and validation. Bugs in the newest commits likely hadn't been found yet, so some test commits marked "clean" are really buggy.
+
+- `apache/hadoop` excluded (0 buggy labels) → total 94,710 commits considered.
+
 
 ### 4.2 Preprocessing
 
