@@ -56,7 +56,7 @@ Role: **Label** = what we predict · **Feature** = model input · **Not used** =
 | `age` | Average time interval between the last and the current change | float | Feature |
 | `nuc` | Number of unique changes to the modified files | float | Feature |
 | `aexp` | Author experience - Number of changes author made before this one | int | Feature |
-| `arexp` | Author recent experience - How recent the changes were made by the author | float | Feature |
+| `arexp` | Author recent experience - author's experience weighted by recency | float | Feature |
 | `asexp` | Author experience with a subsystem - Author's earlier changes to the same subsystems | float | Feature |
 
 ---
@@ -81,7 +81,7 @@ Role: **Label** = what we predict · **Feature** = model input · **Not used** =
 | `asexp` | 5.0 | 52.0 | No |
 
 **Notes:**
-- Author-experience features (aexp, arexp, asexp) are lower for buggy commits, clearly showing that the less experienced authors introduce more bugs.
+- Author-experience features (aexp, arexp, asexp) are lower for buggy commits, showing that buggy commits tend to come more from less experienced authors.
 
 ### 3.2 Plots
 
@@ -89,25 +89,20 @@ Role: **Label** = what we predict · **Feature** = model input · **Not used** =
 
 ![Lines added histogram](figures/la_histogram.png)
 
-_What it shows:_ ___
+- Buggy commits are shifted right, which means commits that add more lines are often more buggy.
 
 **Buggy rate per project**
 
 ![Buggy rate per project](figures/buggy_rate_per_project.png)
 
-_What it shows:_ ___
+- `apache/hadoop` has a buggy rate of exactly 0. Not one of its 11,964 commits is labelled buggy, while its sibling values `hadoop-hdfs` (76 %) and `hadoop-mapreduce` (63 %) are among the highest, so this is almost certainly a labelling gap in the dataset, not a sign of perfect code.
 
 **Buggy rate per year**
 
 ![Buggy rate per year](figures/buggy_rate_per_year.png)
 
-_What it shows:_ ___
+- The buggy rate rises until about 2010–2013 and then drops sharply in 2018–2019 to about 10 % which may mean that the bugs in recent commits hadn't been found yet when the dataset was made.
 
-### 3.3 Key observations
-
-1. ___
-2. ___
-3. ___
 
 ---
 
